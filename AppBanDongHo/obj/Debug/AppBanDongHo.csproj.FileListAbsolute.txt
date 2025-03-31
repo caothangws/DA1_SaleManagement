@@ -1,0 +1,33 @@
+D:\Doan01\AppBanDongHo\bin\Debug\AppBanDongHo.exe.config
+D:\Doan01\AppBanDongHo\bin\Debug\AppBanDongHo.exe
+D:\Doan01\AppBanDongHo\bin\Debug\AppBanDongHo.pdb
+D:\Doan01\AppBanDongHo\bin\Debug\Guna.UI2.dll
+D:\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmDangNhap.resources
+D:\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.Properties.Resources.resources
+D:\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.csproj.GenerateResource.cache
+D:\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.exe
+D:\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.pdb
+D:\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmMain.resources
+D:\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.csprojResolveAssemblyReference.cache
+D:\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmKhachHang.resources
+D:\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmNhanVien.resources
+D:\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmSanPham.resources
+D:\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmHoaDon.resources
+D:\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmThongKe.resources
+D:\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmTaoHD.resources
+D:\New folder\Doan01\AppBanDongHo\bin\Debug\AppBanDongHo.exe.config
+D:\New folder\Doan01\AppBanDongHo\bin\Debug\AppBanDongHo.exe
+D:\New folder\Doan01\AppBanDongHo\bin\Debug\AppBanDongHo.pdb
+D:\New folder\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmTaoHD.resources
+D:\New folder\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmDangNhap.resources
+D:\New folder\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmHoaDon.resources
+D:\New folder\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmKhachHang.resources
+D:\New folder\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmMain.resources
+D:\New folder\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmNhanVien.resources
+D:\New folder\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmSanPham.resources
+D:\New folder\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.frmThongKe.resources
+D:\New folder\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.Properties.Resources.resources
+D:\New folder\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.csproj.GenerateResource.cache
+D:\New folder\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.exe
+D:\New folder\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.pdb
+D:\New folder\Doan01\AppBanDongHo\obj\Debug\AppBanDongHo.csprojResolveAssemblyReference.cache
