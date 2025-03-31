@@ -1,0 +1,17 @@
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\bin\Debug\SaleManagement.exe.config
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\bin\Debug\SaleManagement.exe
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\bin\Debug\SaleManagement.pdb
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\bin\Debug\Guna.UI2.dll
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.AssemblyReference.cache
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.frmMain.resources
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Properties.Resources.resources
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.GenerateResource.cache
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.CoreCompileInputs.cache
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleMana.75E5C939.Up2Date
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.exe
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.pdb
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmHoaDon.resources
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmKhachHang.resources
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmNhanVien.resources
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmSanPham.resources
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmDangNhap.resources
