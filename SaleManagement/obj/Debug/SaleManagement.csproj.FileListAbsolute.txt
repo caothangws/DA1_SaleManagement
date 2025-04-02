@@ -15,3 +15,10 @@ D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\S
 D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmNhanVien.resources
 D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmSanPham.resources
 D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmDangNhap.resources
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\bin\Debug\EntityFramework.dll
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\bin\Debug\EntityFramework.SqlServer.dll
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\bin\Debug\System.Data.SqlClient.dll
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\bin\Debug\EntityFramework.xml
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\bin\Debug\EntityFramework.SqlServer.xml
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\bin\Debug\System.Data.SqlClient.xml
+D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmTaoHD.resources

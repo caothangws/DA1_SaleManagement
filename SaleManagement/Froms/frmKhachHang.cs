@@ -5,20 +5,20 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SaleManagement.Model;
 
 namespace SaleManagement.Froms
 {
     public partial class frmKhachHang : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=DA1_SaleManagement;Integrated Security=True");
-        SqlCommand cmd;
-        SqlDataAdapter adp;
-        DataTable dt;
+        ModelSale db = new ModelSale();
         private bool ThemDL;
         private string makh = "";
+
         public frmKhachHang()
         {
             InitializeComponent();
@@ -29,6 +29,7 @@ namespace SaleManagement.Froms
             setValue();
             disable(false);
             loadData();
+            btnTaoHD.Enabled = false;
         }
         private void setValue()
         {
@@ -51,11 +52,10 @@ namespace SaleManagement.Froms
 
         private void loadData()
         {
-            string sql = "SELECT * FROM KHACHHANG";
-            adp = new SqlDataAdapter(sql, conn);
-            dt = new DataTable();
-            adp.Fill(dt);
-            dtgvKhachHang.DataSource = dt;
+            List<KHACHHANG> kh = new List<KHACHHANG>();
+            kh = db.KHACHHANG.ToList();
+            dtgvKhachHang.AutoGenerateColumns = false;
+            dtgvKhachHang.DataSource = kh;  
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -82,11 +82,17 @@ namespace SaleManagement.Froms
                 }
                 else
                 {
-                    conn.Open();
-                    string sql = "DELETE FROM KHACHHANG WHERE MAKH = '" + makh + "'";
-                    cmd = new SqlCommand(sql, conn);
-                    int kq = cmd.ExecuteNonQuery();
-                    MessageBox.Show(kq > 0 ? "Xoa thanh cong" : "Xoa that bai");
+                    KHACHHANG kh = db.KHACHHANG.Find(makh);
+                    if (kh != null)
+                    {
+                        db.KHACHHANG.Remove(kh);
+                        db.SaveChanges();
+                        MessageBox.Show("Xoa thanh cong");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xoa that bai");
+                    }
                 }
                 frmKhachHang_Load(sender, e);
             }
@@ -139,40 +145,45 @@ namespace SaleManagement.Froms
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            int gt = 0;
+            string gt ="";
             if (radNam.Checked == true)
-                gt = 0;
+                gt = "Nam";
             else if (radNu.Checked == true)
-                gt = 1;
+                gt = "Nữ";
             if (ktDuLieu())
             {
                 try
                 {
-                    conn.Open();
                     if (ThemDL == true)
                     {
-                        string sql = "INSERT INTO KHACHHANG(TENKH,SDT,DIACHI,GIOITINH) VALUES(@TENKH,@SDT,@DIACHI,@GIOITINH)";
-                        cmd = new SqlCommand(sql, conn);
-                        cmd.Parameters.AddWithValue("@TENKH", txtTenKH.Text);
-                        cmd.Parameters.AddWithValue("@SDT", txtSDT.Text);
-                        cmd.Parameters.AddWithValue("@DIACHI", txtDiaChi.Text);
-                        cmd.Parameters.AddWithValue("@GIOITINH", gt);
-
-                        int kq = cmd.ExecuteNonQuery();
-                        MessageBox.Show(kq > 0 ? "Them thanh cong" : "Them that bai");
+                        KHACHHANG kh = new KHACHHANG
+                        {
+                            TENKH = txtTenKH.Text,
+                            SDT = txtSDT.Text,
+                            DIACHI = txtDiaChi.Text,
+                            GIOITINH = gt,
+                        };
+                        db.KHACHHANG.Add(kh);
+                        db.SaveChanges();
+                        MessageBox.Show("Them thanh cong");
                     }
                     else
                     {
-                        string sql = "UPDATE KHACHHANG SET TENKH = @TENKH ,SDT = @SDT,DIACHI = @DIACHI, GIOITINH = @GIOITINH WHERE MAKH = @MAKH ";
-                        cmd = new SqlCommand(sql, conn);
-                        cmd.Parameters.AddWithValue("@TENKH", txtTenKH.Text);
-                        cmd.Parameters.AddWithValue("@SDT", txtSDT.Text);
-                        cmd.Parameters.AddWithValue("@DIACHI", txtDiaChi.Text);
-                        cmd.Parameters.AddWithValue("@GIOITINH", gt);
-                        cmd.Parameters.AddWithValue("@MAKH", makh);
+                        KHACHHANG kh = db.KHACHHANG.Find(int.Parse(makh));
 
-                        int kq = cmd.ExecuteNonQuery();
-                        MessageBox.Show(kq > 0 ? "Cap nhat thanh cong" : "Cap nhat that bai");
+                        if (kh != null)
+                        {
+                            kh.TENKH = txtTenKH.Text;
+                            kh.SDT = txtSDT.Text;
+                            kh.DIACHI = txtDiaChi.Text;
+                            kh.GIOITINH = gt;
+                            db.SaveChanges();
+                            MessageBox.Show("Cap nhat thanh cong");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cap nhat that bai");
+                        }
                     }
                     frmKhachHang_Load(sender, e);
                 }
@@ -180,10 +191,6 @@ namespace SaleManagement.Froms
                 {
                     MessageBox.Show("Loi");
                     return;
-                }
-                finally
-                {
-                    conn.Close();
                 }
             }
         }
@@ -199,17 +206,18 @@ namespace SaleManagement.Froms
             {
                 if (e.RowIndex >= 0)
                 {
+                    btnTaoHD.Enabled = true;
                     btnThem.Enabled = false;
                     makh = dtgvKhachHang.Rows[e.RowIndex].Cells["MAKH1"].Value.ToString();
                     txtTenKH.Text = dtgvKhachHang.Rows[e.RowIndex].Cells[1].Value.ToString();
                     txtSDT.Text = dtgvKhachHang.Rows[e.RowIndex].Cells[2].Value.ToString();
                     txtDiaChi.Text = dtgvKhachHang.Rows[e.RowIndex].Cells[3].Value.ToString();
                     string gioitinh = dtgvKhachHang.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    if (gioitinh == "0")
+                    if (gioitinh == "Nam")
                     {
                         radNam.Checked = true;
                     }
-                    else if (gioitinh == "1")
+                    else if (gioitinh == "Nữ")
                     {
                         radNu.Checked = true;
                     }
@@ -220,6 +228,12 @@ namespace SaleManagement.Froms
                 MessageBox.Show("Loi");
 
             }
+        }
+
+        private void btnTaoHD_Click(object sender, EventArgs e)
+        {
+            frmTaoHD taohd = new frmTaoHD(int.Parse(makh));
+            taohd.Show();
         }
     }
 }

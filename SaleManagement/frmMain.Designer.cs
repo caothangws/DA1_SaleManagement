@@ -38,8 +38,8 @@
             this.picHome = new System.Windows.Forms.PictureBox();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lbTenNV = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.pnlMain.SuspendLayout();
@@ -197,17 +197,6 @@
             this.guna2GradientPanel2.Size = new System.Drawing.Size(1423, 57);
             this.guna2GradientPanel2.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Xin chào:";
-            // 
             // lbTenNV
             // 
             this.lbTenNV.AutoSize = true;
@@ -219,6 +208,17 @@
             this.lbTenNV.TabIndex = 0;
             this.lbTenNV.Text = "tennv";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(25, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 22);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Xin chào:";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -227,6 +227,7 @@
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.guna2GradientPanel1);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.guna2GradientPanel1.ResumeLayout(false);

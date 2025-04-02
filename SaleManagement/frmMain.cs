@@ -18,7 +18,7 @@ namespace SaleManagement
         private Form currentFormChild;
         public string kt;
         private int quyen;
-        private string manv;
+        private int manv;
         public frmMain(int Quyen)
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace SaleManagement
             DataTable dt = new DataTable();
             adp.Fill(dt);
             lbTenNV.Text = dt.Rows[0]["TENNV"].ToString();
-            manv = dt.Rows[0]["MANV"].ToString();
+            manv = int.Parse(dt.Rows[0]["MANV"].ToString());
         }
         private void OpenChildForm(Form childForm)
         {

@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SaleManagement.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace SaleManagement.Froms
 {
     public partial class frmNhanVien : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=DA1_SaleManagement;Integrated Security=True");
-        SqlCommand cmd;
-        SqlDataAdapter adp;
-        DataTable dt;
+        ModelSale context = new ModelSale();
         private bool ThemDL;
         private string manv = "";
         public frmNhanVien()
@@ -54,11 +54,10 @@ namespace SaleManagement.Froms
 
         private void loadData()
         {
-            string sql = "SELECT * FROM NHANVIEN";
-            adp = new SqlDataAdapter(sql, conn);
-            dt = new DataTable();
-            adp.Fill(dt);
-            dtgvNhanVien.DataSource = dt;
+            List<NHANVIEN> nv = new List<NHANVIEN>();
+            nv = context.NHANVIEN.ToList();
+            dtgvNhanVien.AutoGenerateColumns = false;
+            dtgvNhanVien.DataSource = nv;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -85,11 +84,17 @@ namespace SaleManagement.Froms
                 }
                 else
                 {
-                    conn.Open();
-                    string sql = "DELETE FROM NHANVIEN WHERE MANV = '" + manv + "'";
-                    cmd = new SqlCommand(sql, conn);
-                    int kq = cmd.ExecuteNonQuery();
-                    MessageBox.Show(kq > 0 ? "Xoa thanh cong" : "Xoa that bai");
+                    NHANVIEN nv = context.NHANVIEN.Find(int.Parse(manv));
+                    if (nv != null)
+                    {
+                        context.NHANVIEN.Remove(nv);
+                        context.SaveChanges();
+                        MessageBox.Show("Xoa thanh cong");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xoa that bai");
+                    }
                 }
                 frmNhanVien_Load(sender, e);
             }
@@ -143,54 +148,54 @@ namespace SaleManagement.Froms
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            int vt = 0;
             try
             {
-                conn.Open();
                 if (ktDuLieu())
                 {
                     if (ThemDL == true)
                     {
-                        string sql = "INSERT INTO NHANVIEN(TENNV,SDT,EMAIL,NGAYSINH,DIACHI) VALUES(@TENNV,@SDT,@EMAIL,@NGAYSINH,@DIACHI)";
-                        cmd = new SqlCommand(sql, conn);
-                        cmd.Parameters.AddWithValue("@TENNV", txtTenNV.Text);
-                        cmd.Parameters.AddWithValue("@SDT", txtSDT.Text);
-                        cmd.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
-                        cmd.Parameters.AddWithValue("@NGAYSINH", dtpkNgaySinh.Value);
-                        cmd.Parameters.AddWithValue("@DIACHI", txtDiaChi.Text);
-
-                        int kq = cmd.ExecuteNonQuery();
-                        MessageBox.Show(kq > 0 ? "Them thanh cong" : "Them that bai");
+                        NHANVIEN nv = new NHANVIEN
+                        {
+                            TENNV = txtTenNV.Text,
+                            SDT = txtSDT.Text,
+                            EMAIL = txtEmail.Text,
+                            NGAYSINH = dtpkNgaySinh.Value,
+                            DIACHI = txtDiaChi.Text,
+                            VAITRO = vt
+                        };
+                        context.NHANVIEN.Add(nv);
+                        context.SaveChanges();
+                        MessageBox.Show("Them thanh cong");
                     }
                     else
                     {
-                        string sql = "UPDATE NHANVIEN SET TENNV = @TENNV,SDT = @SDT,EMAIL = @EMAIL,NGAYSINH = @NGAYSINH,DIACHI = @DIACHI WHERE MANV = @MANV ";
-                        cmd = new SqlCommand(sql, conn);
-                        cmd.Parameters.AddWithValue("@TENNV", txtTenNV.Text);
-                        cmd.Parameters.AddWithValue("@SDT", txtSDT.Text);
-                        cmd.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
-                        cmd.Parameters.AddWithValue("@NGAYSINH", dtpkNgaySinh.Value);
-                        cmd.Parameters.AddWithValue("@DIACHI", txtDiaChi.Text);
-                        cmd.Parameters.AddWithValue("@MANV", manv);
+                        NHANVIEN nv = context.NHANVIEN.Find(int.Parse(manv));
 
-                        int kq = cmd.ExecuteNonQuery();
-                        MessageBox.Show(kq > 0 ? "Cap nhat thanh cong" : "Cap nhat that bai");
+                        if (nv != null)
+                        {
+                            nv.TENNV = txtTenNV.Text;
+                            nv.SDT = txtSDT.Text;
+                            nv.EMAIL = txtEmail.Text;
+                            nv.NGAYSINH = dtpkNgaySinh.Value;
+                            nv.DIACHI = txtDiaChi.Text;
+                            context.SaveChanges();
+                            MessageBox.Show("Cap nhat thanh cong");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cap nhat that bai");
+                        }
 
                     }
                     frmNhanVien_Load(sender, e);
-
                 }
-
             }
             catch
             {
                 MessageBox.Show("Loi");
                 return;
             }
-            finally
-            {
-                conn.Close();
-            }
-
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -215,7 +220,6 @@ namespace SaleManagement.Froms
             catch
             {
                 MessageBox.Show("Loi");
-
             }
         }
     }
