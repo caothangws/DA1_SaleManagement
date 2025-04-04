@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SaleManagement.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace SaleManagement.Froms
 {
     public partial class frmDangNhap : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=DA1_SaleManagement;Integrated Security=True");
+        ModelSale context = new ModelSale();
         public frmDangNhap()
         {
             InitializeComponent();
@@ -54,17 +55,13 @@ namespace SaleManagement.Froms
             string mk = txtMatKhau.Text.Trim();
             try
             {
-                conn.Open();
-                string sql = "SELECT * FROM Users WHERE TAIKHOAN = '" + tk + "' AND MATKHAU = '" + mk + "'";
-                SqlDataAdapter adp = new SqlDataAdapter(sql, conn);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
+                var user = context.USERS.FirstOrDefault(r => r.TAIKHOAN == tk && r.MATKHAU == mk);
 
-                if (dt.Rows.Count > 0)
+                if (user != null)
                 {
-                    int quyen = int.Parse(dt.Rows[0]["Quyen"].ToString());
+                    int quyen = int.Parse(user.QUYEN.ToString());
                     frmMain _main = new frmMain(quyen);
-                    _main.kt = dt.Rows[0]["Quyen"].ToString();
+                    _main.kt = quyen.ToString();
 
                     MessageBox.Show("Đăng nhập thành công.");
                     this.Hide();
@@ -82,8 +79,6 @@ namespace SaleManagement.Froms
                     txtTenTK.Text = "";
                     txtMatKhau.Text = "";
                 }
-                conn.Close();
-
             }
             catch (Exception ex)
             {

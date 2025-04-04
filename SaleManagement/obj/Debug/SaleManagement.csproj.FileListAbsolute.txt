@@ -22,3 +22,26 @@ D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\bin\Debug\E
 D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\bin\Debug\EntityFramework.SqlServer.xml
 D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\bin\Debug\System.Data.SqlClient.xml
 D:\File\Project\DA1_SaleManagement\App\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmTaoHD.resources
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\bin\Debug\SaleManagement.exe.config
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\bin\Debug\SaleManagement.exe
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\bin\Debug\SaleManagement.pdb
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\bin\Debug\EntityFramework.dll
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\bin\Debug\EntityFramework.SqlServer.dll
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\bin\Debug\System.Data.SqlClient.dll
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\bin\Debug\EntityFramework.xml
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\bin\Debug\EntityFramework.SqlServer.xml
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\bin\Debug\System.Data.SqlClient.xml
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.AssemblyReference.cache
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleManagement.frmMain.resources
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmDangNhap.resources
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmHoaDon.resources
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmKhachHang.resources
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmNhanVien.resources
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmSanPham.resources
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleManagement.Froms.frmTaoHD.resources
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleManagement.Properties.Resources.resources
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.GenerateResource.cache
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.CoreCompileInputs.cache
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleMana.75E5C939.Up2Date
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleManagement.exe
+D:\Năm 3\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\DA1_SaleManagement\SaleManagement\obj\Debug\SaleManagement.pdb

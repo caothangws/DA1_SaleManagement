@@ -303,7 +303,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 264);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1405, 501);
+            this.panel4.Size = new System.Drawing.Size(1405, 558);
             this.panel4.TabIndex = 3;
             // 
             // dtgvNhanVien
@@ -348,7 +348,7 @@
             this.dtgvNhanVien.RowHeadersWidth = 51;
             this.dtgvNhanVien.RowTemplate.Height = 24;
             this.dtgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvNhanVien.Size = new System.Drawing.Size(1405, 501);
+            this.dtgvNhanVien.Size = new System.Drawing.Size(1405, 558);
             this.dtgvNhanVien.TabIndex = 0;
             this.dtgvNhanVien.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightBlue;
             this.dtgvNhanVien.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
@@ -421,7 +421,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1405, 765);
+            this.ClientSize = new System.Drawing.Size(1405, 822);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

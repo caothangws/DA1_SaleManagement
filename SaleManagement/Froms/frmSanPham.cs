@@ -65,6 +65,8 @@ namespace SaleManagement.Froms
             txtTenSP.Enabled = gt;
             txtGiaBan.Enabled = gt;
             txtGhiChu.Enabled = gt;
+            cbxDanhMuc.Enabled = gt;
+            dtpkNgayNhap.Enabled = gt;
 
             btnChon.Enabled = gt;
             btnThem.Enabled = !gt;
@@ -87,19 +89,23 @@ namespace SaleManagement.Froms
 
         private void loadData()
         {
-            var sp = context.SANPHAM.Where(r => r.SOLUONGTON > 0)
-                                 .Select(r => new
-                                 {
-                                     r.MASP,
-                                     r.TENSP,
-                                     r.SOLUONGTON,
-                                     r.GIABAN,
-                                     r.GHICHU,
-                                     r.HINHANH,
-                                 }).ToList();
+            var sanpham = (from sp in context.SANPHAM
+                           join dm in context.DANHMUCSP on sp.IDDanhMuc equals dm.IDDanhMuc
+                           select new
+                           {
+                               sp.MASP,
+                               sp.TENSP,
+                               sp.SOLUONGTON,
+                               sp.GIABAN,
+                               sp.GHICHU,
+                               hinhanh = sp.HINHANH.Trim(),
+                               dm.IDDanhMuc,
+                               dm.TENDM,
+                           }).ToList();
+
 
             dtgvSanPham.AutoGenerateColumns = false;
-            dtgvSanPham.DataSource = sp;
+            dtgvSanPham.DataSource = sanpham;
         }
 
         private void loadDanhMuc()
@@ -110,6 +116,8 @@ namespace SaleManagement.Froms
             cbxDanhMuc.DisplayMember = "TENDM";
             cbxDanhMuc.ValueMember = "IDDanhMuc";
             cbxDanhMuc.SelectedIndex = -1;
+
+
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -137,10 +145,10 @@ namespace SaleManagement.Froms
             {
                 int maspInt = int.Parse(masp);
                 var nhapspList = context.NHAPSP.Where(n => n.MASP == maspInt).ToList();
-                if (nhapspList.Any()) 
+                if (nhapspList.Any())
                 {
                     context.NHAPSP.RemoveRange(nhapspList);
-                    context.SaveChanges(); 
+                    context.SaveChanges();
                 }
 
                 SANPHAM sp = context.SANPHAM.Find(int.Parse(masp));
@@ -208,7 +216,6 @@ namespace SaleManagement.Froms
                         context.SANPHAM.Add(sp);
                         context.SaveChanges();
                         masp = sp.MASP.ToString();
-
                         NHAPSP nsp = new NHAPSP
                         {
                             MASP = int.Parse(masp),
@@ -224,14 +231,14 @@ namespace SaleManagement.Froms
                     }
                     else
                     {
-                        SANPHAM sp = context.SANPHAM.Find(masp);
+                        SANPHAM sp = context.SANPHAM.Find(int.Parse(masp));
                         if (sp != null)
                         {
                             sp.TENSP = txtTenSP.Text;
                             sp.GIABAN = int.Parse(txtGiaBan.Text);
                             sp.GHICHU = txtGhiChu.Text;
                             sp.HINHANH = txtHinhAnh.Text;
-
+                            sp.IDDanhMuc = int.Parse(cbxDanhMuc.SelectedValue.ToString());
                             context.SaveChanges();
                             MessageBox.Show("Cap nhat thanh cong");
                         }
@@ -248,6 +255,7 @@ namespace SaleManagement.Froms
                     return;
                 }
             }
+
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -267,33 +275,41 @@ namespace SaleManagement.Froms
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string selectedFilePath = openFileDialog.FileName; // Đường dẫn ảnh người dùng chọn
-                string targetDirectory = Path.Combine(Application.StartupPath, "Images");
+                string targetDirectory = Path.Combine(Application.StartupPath, "Resources", "Image");
                 string fileName = Path.GetFileName(selectedFilePath); // Lấy tên file
+                string targetFilePath = Path.Combine(targetDirectory, fileName); // Đường dẫn lưu trữ ảnh
 
-                // Kiểm tra xem ảnh có nằm ngoài thư mục Resources/Image không
-                if (!selectedFilePath.StartsWith(targetDirectory))
+                // Tạo thư mục nếu chưa tồn tại
+                if (!Directory.Exists(targetDirectory))
                 {
-                    // Tạo thư mục Resources/Image nếu chưa có
-                    if (!Directory.Exists(targetDirectory))
-                    {
-                        Directory.CreateDirectory(targetDirectory);
-                    }
-
-                    // Tạo đường dẫn mới trong thư mục Resources/Image
-                    string targetFilePath = Path.Combine(targetDirectory, fileName);
-
-                   
-
-                    selectedFilePath = targetFilePath; // Cập nhật đường dẫn mới
+                    Directory.CreateDirectory(targetDirectory);
                 }
 
-                // Hiển thị đường dẫn ảnh đã chọn trong TextBox và hiển thị ảnh trong PictureBox
+                // Kiểm tra nếu ảnh đã tồn tại
+                if (File.Exists(targetFilePath))
+                {
+                    DialogResult result = MessageBox.Show("Ảnh đã tồn tại! Bạn có muốn sử dụng ảnh này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.No)
+                    {
+                        return; // Không làm gì nếu người dùng chọn "No"
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        File.Copy(selectedFilePath, targetFilePath, true); // Sao chép ảnh nếu chưa tồn tại
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show("Lỗi khi sao chép ảnh: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                // Hiển thị ảnh trong giao diện
                 txtHinhAnh.Text = fileName; // Chỉ lưu tên file vào database
-                picHinhAnh.ImageLocation = selectedFilePath; // Hiển thị ảnh trong PictureBox
-
-
-                
-
+                picHinhAnh.ImageLocation = targetFilePath; // Hiển thị ảnh trong PictureBox
             }
         }
 
@@ -432,6 +448,7 @@ namespace SaleManagement.Froms
                     txtGiaBan.Text = giaBanInt.ToString();
                     txtGhiChu.Text = dtgvSanPham.Rows[e.RowIndex].Cells[4].Value.ToString();
                     string filename = dtgvSanPham.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    cbxDanhMuc.SelectedValue = int.Parse(dtgvSanPham.Rows[e.RowIndex].Cells[6].Value.ToString());
                     txtHinhAnh.Text = filename;
 
                     if (!string.IsNullOrEmpty(filename))
@@ -452,6 +469,36 @@ namespace SaleManagement.Froms
                     {
                         picHinhAnh.Image = null; // Xóa ảnh nếu không có đường dẫn
                     }
+
+                    if (int.TryParse(masp, out int maSanPham))
+                    {
+                        var nhapsp = context.NHAPSP
+                                        .Where(nsp => nsp.MASP == maSanPham)
+                                        .Select(nsp => new
+                                        {
+                                            nsp.GIANHAP,
+                                            nsp.NGAYNHAP,
+                                            nsp.SOLUONG,
+                                            nsp.THANHTIEN
+                                        })
+                                        .FirstOrDefault();
+
+                        if (nhapsp != null)
+                        {
+                            txtGiaNhap.Text = Convert.ToInt32(nhapsp.GIANHAP).ToString();
+                            dtpkNgayNhap.Text = nhapsp.NGAYNHAP.ToString();
+                            txtSLNhap.Text = nhapsp.SOLUONG.ToString();
+                            txtThanhTien.Text = Convert.ToInt32(nhapsp.THANHTIEN).ToString();
+                        }
+                        else
+                        {
+                            txtGiaNhap.Text = ""; // Nếu không tìm thấy dữ liệu, xóa nội dung
+                        }
+                    }
+                    else
+                    {
+                        txtGiaNhap.Text = ""; // Nếu `masp` không hợp lệ, xóa nội dung
+                    }
                 }
             }
             catch
@@ -460,37 +507,6 @@ namespace SaleManagement.Froms
             }
         }
 
-        private void txtTenSP_TextChanged(object sender, EventArgs e)
-        {
-            if (int.TryParse(masp, out int maSanPham))
-            {
-                var nhapsp = context.NHAPSP
-                                .Where(nsp => nsp.MASP == maSanPham)
-                                .Select(nsp => new
-                                {
-                                    nsp.GIANHAP,
-                                    nsp.NGAYNHAP,
-                                    nsp.SOLUONG,
-                                    nsp.THANHTIEN
-                                })
-                                .FirstOrDefault();
 
-                if (nhapsp != null)
-                {
-                    txtGiaNhap.Text = Convert.ToInt32(nhapsp.GIANHAP).ToString();
-                    dtpkNgayNhap.Text = nhapsp.NGAYNHAP.ToString();
-                    txtSLNhap.Text = nhapsp.SOLUONG.ToString();
-                    txtThanhTien.Text = Convert.ToInt32(nhapsp.THANHTIEN).ToString();
-                }
-                else
-                {
-                    txtGiaNhap.Text = ""; // Nếu không tìm thấy dữ liệu, xóa nội dung
-                }
-            }
-            else
-            {
-                txtGiaNhap.Text = ""; // Nếu `masp` không hợp lệ, xóa nội dung
-            }
-        }
     }
 }

@@ -160,7 +160,7 @@ namespace SaleManagement.Froms
                             TENNV = txtTenNV.Text,
                             SDT = txtSDT.Text,
                             EMAIL = txtEmail.Text,
-                            NGAYSINH = dtpkNgaySinh.Value,
+                            NGAYSINH = DateTime.Parse( dtpkNgaySinh.Value.ToString()),
                             DIACHI = txtDiaChi.Text,
                             VAITRO = vt
                         };
