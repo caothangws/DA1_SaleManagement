@@ -64,7 +64,7 @@ namespace SaleManagement
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmKhachHang());
+            OpenChildForm(new frmKhachHang(manv));
         }
 
         private void btnSanPham_Click(object sender, EventArgs e)

@@ -18,10 +18,11 @@ namespace SaleManagement.Froms
         ModelSale db = new ModelSale();
         private bool ThemDL;
         private string makh = "";
-
-        public frmKhachHang()
+        private int maNV;
+        public frmKhachHang(int manv)
         {
             InitializeComponent();
+            maNV = manv;
         }
 
         private void frmKhachHang_Load(object sender, EventArgs e)
@@ -232,7 +233,7 @@ namespace SaleManagement.Froms
 
         private void btnTaoHD_Click(object sender, EventArgs e)
         {
-            frmTaoHD taohd = new frmTaoHD(int.Parse(makh));
+            frmTaoHD taohd = new frmTaoHD(int.Parse(makh),maNV);
             taohd.Show();
         }
     }

@@ -18,9 +18,7 @@ namespace SaleManagement.Model
 
         public int MASP { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string SOLUONG { get; set; }
+        public int SOLUONG { get; set; }
 
         public decimal THANHTIEN { get; set; }
 

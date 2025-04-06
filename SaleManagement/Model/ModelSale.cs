@@ -29,11 +29,6 @@ namespace SaleManagement.Model
                 .Property(e => e.MAHD)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<CHITIETHD>()
-                .Property(e => e.SOLUONG)
-                .IsFixedLength()
-                .IsUnicode(false);
-
             modelBuilder.Entity<DANHMUCSP>()
                 .Property(e => e.CodeDM)
                 .IsUnicode(false);
@@ -41,6 +36,10 @@ namespace SaleManagement.Model
             modelBuilder.Entity<HOADON>()
                 .Property(e => e.MAHD)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<HOADON>()
+                .Property(e => e.TONGTIEN)
+                .HasPrecision(18, 0);
 
             modelBuilder.Entity<HOADON>()
                 .HasMany(e => e.CHITIETHD)

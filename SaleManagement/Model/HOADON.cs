@@ -24,7 +24,7 @@ namespace SaleManagement.Model
         [Column(TypeName = "date")]
         public DateTime NGAYTAO { get; set; }
 
-        public int TONGTIEN { get; set; }
+        public decimal TONGTIEN { get; set; }
 
         public int MANV { get; set; }
 
