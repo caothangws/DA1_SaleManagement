@@ -14,7 +14,7 @@ namespace SaleManagement.Froms
     public partial class frmHoaDon : Form
     {
         ModelSale context = new ModelSale();
-
+        string maHD;
         public frmHoaDon()
         {
             InitializeComponent();
@@ -51,6 +51,27 @@ namespace SaleManagement.Froms
         private void txtTenKH_TextChanged(object sender, EventArgs e)
         {
             loadHoaDon(txtTenKH.Text.Trim());
+        }
+
+        private void btnXemCT_Click(object sender, EventArgs e)
+        {
+            if (maHD != null)
+            {
+                Reports.frmCTHD ct = new Reports.frmCTHD(maHD.ToString());
+                ct.Show();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn hóa đơn trước!");
+            }
+        }
+
+        private void dtgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                maHD = dtgvHoaDon.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
         }
     }
 }

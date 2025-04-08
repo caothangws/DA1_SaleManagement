@@ -26,7 +26,7 @@ namespace SaleManagement.Model
         [StringLength(50)]
         public string SDT { get; set; }
 
-        [StringLength(255)]
+        [Column(TypeName = "ntext")]
         public string LOGO { get; set; }
     }
 }

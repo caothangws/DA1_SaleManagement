@@ -19,5 +19,9 @@ namespace SaleManagement.Model
         public string MATKHAU { get; set; }
 
         public int QUYEN { get; set; }
+
+        public int MANV { get; set; }
+
+        public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }

@@ -29,12 +29,15 @@ namespace SaleManagement.Model
 
         public string GHICHU { get; set; }
 
+        [StringLength(60)]
         public string HINHANH { get; set; }
 
         public int IDDanhMuc { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETHD> CHITIETHD { get; set; }
+
+        public virtual DANHMUCSP DANHMUCSP { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NHAPSP> NHAPSP { get; set; }

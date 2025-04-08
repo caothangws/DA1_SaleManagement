@@ -47,25 +47,29 @@ namespace SaleManagement.Froms
             txtDiaChi.Enabled = gt;
 
             btnLuu.Enabled = gt;
-            btnThem.Enabled = !gt;
             btnCapNhat.Enabled = !gt;
             btnXoa.Enabled = !gt;
         }
 
         private void loadData()
         {
-            List<NHANVIEN> nv = new List<NHANVIEN>();
-            nv = context.NHANVIEN.ToList();
+            var nhanvien = (from nv in context.NHANVIEN
+                            where nv.VAITRO != 1
+                            select new
+                            {
+                                nv.MANV,
+                                nv.TENNV,
+                                nv.SDT,
+                                nv.EMAIL,
+                                nv.NGAYSINH,
+                                nv.DIACHI,
+                                nv.VAITRO,
+                            }).ToList();
             dtgvNhanVien.AutoGenerateColumns = false;
-            dtgvNhanVien.DataSource = nv;
+            dtgvNhanVien.DataSource = nhanvien;
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            setValue();
-            disable(true);
-            ThemDL = true;
-        }
+        
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
@@ -153,22 +157,8 @@ namespace SaleManagement.Froms
             {
                 if (ktDuLieu())
                 {
-                    if (ThemDL == true)
-                    {
-                        NHANVIEN nv = new NHANVIEN
-                        {
-                            TENNV = txtTenNV.Text,
-                            SDT = txtSDT.Text,
-                            EMAIL = txtEmail.Text,
-                            NGAYSINH = DateTime.Parse( dtpkNgaySinh.Value.ToString()),
-                            DIACHI = txtDiaChi.Text,
-                            VAITRO = vt
-                        };
-                        context.NHANVIEN.Add(nv);
-                        context.SaveChanges();
-                        MessageBox.Show("Them thanh cong");
-                    }
-                    else
+                    
+                    if(ThemDL == false)
                     {
                         NHANVIEN nv = context.NHANVIEN.Find(int.Parse(manv));
 

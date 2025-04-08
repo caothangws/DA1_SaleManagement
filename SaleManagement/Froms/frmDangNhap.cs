@@ -51,18 +51,17 @@ namespace SaleManagement.Froms
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            string tk = txtTenTK.Text.Trim();
+            string tk = txtTenTK.Text.Trim().ToLower();
             string mk = txtMatKhau.Text.Trim();
             try
             {
                 var user = context.USERS.FirstOrDefault(r => r.TAIKHOAN == tk && r.MATKHAU == mk);
-
                 if (user != null)
                 {
-                    int quyen = int.Parse(user.QUYEN.ToString());
-                    frmMain _main = new frmMain(quyen);
-                    _main.kt = quyen.ToString();
+                    int manv = (int)user.MANV;
 
+                    frmMain _main = new frmMain(manv);
+                    _main.maNV = manv;
                     MessageBox.Show("Đăng nhập thành công.");
                     this.Hide();
                     _main.Show();
@@ -92,6 +91,13 @@ namespace SaleManagement.Froms
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lnkDangKy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            frmDangKy dk = new frmDangKy();
+            dk.Show();
         }
     }
 }

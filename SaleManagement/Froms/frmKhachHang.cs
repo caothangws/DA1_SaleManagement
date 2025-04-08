@@ -19,10 +19,12 @@ namespace SaleManagement.Froms
         private bool ThemDL;
         private string makh = "";
         private int maNV;
-        public frmKhachHang(int manv)
+        private int Quyen;
+        public frmKhachHang(int manv,int quyen)
         {
             InitializeComponent();
             maNV = manv;
+            Quyen = quyen;
         }
 
         private void frmKhachHang_Load(object sender, EventArgs e)
@@ -31,6 +33,11 @@ namespace SaleManagement.Froms
             disable(false);
             loadData();
             btnTaoHD.Enabled = false;
+            if(Quyen == 0)
+            {
+                btnXoa.Enabled = false;
+                btnCapNhat.Enabled = false;
+            }
         }
         private void setValue()
         {

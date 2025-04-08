@@ -14,6 +14,7 @@ namespace SaleManagement.Model
         {
             HOADON = new HashSet<HOADON>();
             NHAPSP = new HashSet<NHAPSP>();
+            USERS = new HashSet<USERS>();
         }
 
         [Key]
@@ -23,7 +24,6 @@ namespace SaleManagement.Model
         [StringLength(50)]
         public string TENNV { get; set; }
 
-        [Required]
         [StringLength(10)]
         public string SDT { get; set; }
 
@@ -43,5 +43,8 @@ namespace SaleManagement.Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NHAPSP> NHAPSP { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<USERS> USERS { get; set; }
     }
 }

@@ -9,31 +9,68 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SaleManagement.Froms;
+using SaleManagement.Model;
 namespace SaleManagement
 {
     public partial class frmMain : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=DA1_SaleManagement;Integrated Security=True;Encrypt=False;");
+        ModelSale context = new ModelSale();
         SqlDataAdapter adp;
         private Form currentFormChild;
-        public string kt;
-        private int quyen;
-        private int manv;
-        public frmMain(int Quyen)
+        public int maNV;
+        private Timer timer;
+        string vaitro;
+        int quyen;
+        public frmMain(int manv)
         {
             InitializeComponent();
-            this.quyen = Quyen;
+            manv = maNV;
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now;
+            lbDate.Text = date.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            string sql = "SELECT * FROM NHANVIEN WHERE VAITRO =  " + quyen + " ";
-            adp = new SqlDataAdapter(sql, conn);
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            lbTenNV.Text = dt.Rows[0]["TENNV"].ToString();
-            manv = int.Parse(dt.Rows[0]["MANV"].ToString());
+            var nv = context.NHANVIEN.Where(r => r.MANV == maNV).Select( r => new
+            {
+                r.MANV,
+                r.TENNV,
+                r.VAITRO,
+            }).FirstOrDefault();
+            
+            lbTenNV.Text = "Xin chào: " + nv.TENNV.ToString();
+            quyen = nv.VAITRO;
+            
+            if(nv.VAITRO == 1)
+            {
+                vaitro = "Quản trị";
+            }
+            else
+            {
+                vaitro = "Nhân viên";
+            }
+            lbVaiTro.Text = "Vai trò: " + vaitro;
+
+            if (nv.VAITRO == 0)
+            {
+                btnNhanVien.Enabled = false;
+                btnBaoCao.Enabled = false;
+            }
         }
+
+        public void UpdateTenNV(string tenMoi)
+        {
+            lbTenNV.Text = "Xin chào: " + tenMoi;
+        }
+
         private void OpenChildForm(Form childForm)
         {
             if (currentFormChild != null)
@@ -64,12 +101,12 @@ namespace SaleManagement
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmKhachHang(manv));
+            OpenChildForm(new frmKhachHang(maNV,quyen));
         }
 
         private void btnSanPham_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmSanPham(manv));
+            OpenChildForm(new frmSanPham(maNV,quyen));
         }
 
         private void btnHoaDon_Click(object sender, EventArgs e)
@@ -77,8 +114,24 @@ namespace SaleManagement
             OpenChildForm(new frmHoaDon());
         }
 
-        private void btnThongKe_Click(object sender, EventArgs e)
+       
+
+        private void frmThongTin_Click(object sender, EventArgs e)
         {
+            frmBSThongTin bstt = new frmBSThongTin(maNV, this);
+            bstt.Show();
+        }
+
+        private void btnBaoCao_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmDangNhap dn = new frmDangNhap();
+            dn.Show();
         }
     }
 }

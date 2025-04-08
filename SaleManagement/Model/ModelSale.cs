@@ -30,8 +30,9 @@ namespace SaleManagement.Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<DANHMUCSP>()
-                .Property(e => e.CodeDM)
-                .IsUnicode(false);
+                .HasMany(e => e.SANPHAM)
+                .WithRequired(e => e.DANHMUCSP)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<HOADON>()
                 .Property(e => e.MAHD)
@@ -71,6 +72,16 @@ namespace SaleManagement.Model
                 .WithRequired(e => e.NHANVIEN)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<NHANVIEN>()
+                .HasMany(e => e.USERS)
+                .WithRequired(e => e.NHANVIEN)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<SANPHAM>()
+                .Property(e => e.HINHANH)
+                .IsFixedLength()
+                .IsUnicode(false);
+
             modelBuilder.Entity<SANPHAM>()
                 .HasMany(e => e.CHITIETHD)
                 .WithRequired(e => e.SANPHAM)
@@ -84,10 +95,6 @@ namespace SaleManagement.Model
             modelBuilder.Entity<THONGTIN>()
                 .Property(e => e.SDT)
                 .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<THONGTIN>()
-                .Property(e => e.LOGO)
                 .IsUnicode(false);
         }
     }

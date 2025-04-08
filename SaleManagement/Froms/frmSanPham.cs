@@ -19,12 +19,13 @@ namespace SaleManagement.Froms
         ModelSale context = new ModelSale();
         private bool ThemDL;
         private string masp = "";
-        private string mansp = "";
+        private int Quyen;
         private int maNV;
-        public frmSanPham(int manv)
+        public frmSanPham(int manv, int quyen)
         {
             InitializeComponent();
             maNV = manv;
+            Quyen = quyen;
         }
 
         private void frmSanPham_Load(object sender, EventArgs e)
@@ -43,6 +44,11 @@ namespace SaleManagement.Froms
                       }).ToList();
 
             txtNguoiNhap.Text = nv.First().TENNV;
+            if(Quyen == 0)
+            {
+                btnXoa.Enabled = false;
+                btnCapNhat.Enabled = false;
+            }
         }
 
         private void setValue()
