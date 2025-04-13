@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\N\u0103m 3\\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\\DA1_SaleManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{70012E91-09E8-4878-9016-FB1B86796DD1}|SaleManagement\\SaleManagement.csproj|d:\\n\u0103m 3\\trancaothang_tranquangsang_dh21tin02_doan1\\da1_salemanagement\\salemanagement\\froms\\frmsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{70012E91-09E8-4878-9016-FB1B86796DD1}|SaleManagement\\SaleManagement.csproj|solutionrelative:salemanagement\\froms\\frmsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{70012E91-09E8-4878-9016-FB1B86796DD1}|SaleManagement\\SaleManagement.csproj|d:\\n\u0103m 3\\trancaothang_tranquangsang_dh21tin02_doan1\\da1_salemanagement\\salemanagement\\reports\\rphoadon.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{70012E91-09E8-4878-9016-FB1B86796DD1}|SaleManagement\\SaleManagement.csproj|solutionrelative:salemanagement\\reports\\rphoadon.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70012E91-09E8-4878-9016-FB1B86796DD1}|SaleManagement\\SaleManagement.csproj|D:\\N\u0103m 3\\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\\DA1_SaleManagement\\salemanagement\\froms\\frmtaohd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{70012E91-09E8-4878-9016-FB1B86796DD1}|SaleManagement\\SaleManagement.csproj|solutionrelative:salemanagement\\froms\\frmtaohd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70012E91-09E8-4878-9016-FB1B86796DD1}|SaleManagement\\SaleManagement.csproj|d:\\n\u0103m 3\\trancaothang_tranquangsang_dh21tin02_doan1\\da1_salemanagement\\salemanagement\\froms\\frmtaohd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70012E91-09E8-4878-9016-FB1B86796DD1}|SaleManagement\\SaleManagement.csproj|solutionrelative:salemanagement\\froms\\frmtaohd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70012E91-09E8-4878-9016-FB1B86796DD1}|SaleManagement\\SaleManagement.csproj|d:\\n\u0103m 3\\trancaothang_tranquangsang_dh21tin02_doan1\\da1_salemanagement\\salemanagement\\reports\\frmcthd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70012E91-09E8-4878-9016-FB1B86796DD1}|SaleManagement\\SaleManagement.csproj|solutionrelative:salemanagement\\reports\\frmcthd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,15 +35,52 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmSanPham.cs",
-              "DocumentMoniker": "D:\\N\u0103m 3\\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\\DA1_SaleManagement\\SaleManagement\\Froms\\frmSanPham.cs",
-              "RelativeDocumentMoniker": "SaleManagement\\Froms\\frmSanPham.cs",
-              "ToolTip": "D:\\N\u0103m 3\\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\\DA1_SaleManagement\\SaleManagement\\Froms\\frmSanPham.cs",
-              "RelativeToolTip": "SaleManagement\\Froms\\frmSanPham.cs",
-              "ViewState": "AgIAAEEBAAAAAAAAAAAUwHQBAAANAAAAAAAAAA==",
+              "Title": "rpHoaDon.rdlc [Design]",
+              "DocumentMoniker": "D:\\N\u0103m 3\\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\\DA1_SaleManagement\\SaleManagement\\Reports\\rpHoaDon.rdlc",
+              "RelativeDocumentMoniker": "SaleManagement\\Reports\\rpHoaDon.rdlc",
+              "ToolTip": "D:\\N\u0103m 3\\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\\DA1_SaleManagement\\SaleManagement\\Reports\\rpHoaDon.rdlc [Design]",
+              "RelativeToolTip": "SaleManagement\\Reports\\rpHoaDon.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2025-04-13T11:16:10.723Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmCTHD.cs",
+              "DocumentMoniker": "D:\\N\u0103m 3\\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\\DA1_SaleManagement\\SaleManagement\\Reports\\frmCTHD.cs",
+              "RelativeDocumentMoniker": "SaleManagement\\Reports\\frmCTHD.cs",
+              "ToolTip": "D:\\N\u0103m 3\\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\\DA1_SaleManagement\\SaleManagement\\Reports\\frmCTHD.cs",
+              "RelativeToolTip": "SaleManagement\\Reports\\frmCTHD.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T06:00:05.063Z",
+              "WhenOpened": "2025-04-13T11:10:44.675Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmTaoHD.cs",
+              "DocumentMoniker": "D:\\N\u0103m 3\\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\\DA1_SaleManagement\\SaleManagement\\Froms\\frmTaoHD.cs",
+              "RelativeDocumentMoniker": "SaleManagement\\Froms\\frmTaoHD.cs",
+              "ToolTip": "D:\\N\u0103m 3\\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\\DA1_SaleManagement\\SaleManagement\\Froms\\frmTaoHD.cs",
+              "RelativeToolTip": "SaleManagement\\Froms\\frmTaoHD.cs",
+              "ViewState": "AgIAANQAAAAAAAAAAAAAACEAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T12:41:23.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmTaoHD.cs [Design]",
+              "DocumentMoniker": "D:\\N\u0103m 3\\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\\DA1_SaleManagement\\SaleManagement\\Froms\\frmTaoHD.cs",
+              "RelativeDocumentMoniker": "SaleManagement\\Froms\\frmTaoHD.cs",
+              "ToolTip": "D:\\N\u0103m 3\\TranCaoThang_TranQuangSang_DH21TIN02_DoAn1\\DA1_SaleManagement\\SaleManagement\\Froms\\frmTaoHD.cs [Design]",
+              "RelativeToolTip": "SaleManagement\\Froms\\frmTaoHD.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T12:41:21.477Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

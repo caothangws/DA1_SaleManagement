@@ -29,7 +29,8 @@ namespace SaleManagement.Froms
         {
             var hoadon = (from hd in context.HOADON
                           join kh in context.KHACHHANG on hd.MAKH equals kh.MAKH
-                          join nv in context.NHANVIEN on hd.MANV equals nv.MANV
+                          join nv in context.NHANVIEN on hd.MANV equals nv.MANV 
+                          orderby hd.MAHD descending
                           select new
                           {
                               hd.MAHD,

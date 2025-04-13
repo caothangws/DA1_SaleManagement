@@ -1,4 +1,5 @@
 ﻿using SaleManagement.Model;
+using SaleManagement.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace SaleManagement.Froms
         ModelSale context = new ModelSale();
         private int maKH;
         private int maNV;
+        string maHoaDon;
         public frmTaoHD(int makh, int manv)
         {
             InitializeComponent();
@@ -28,6 +30,8 @@ namespace SaleManagement.Froms
             loadDanhMuc();
             loadKhachHang();
             loadNguoiTao();
+            btnInHD.Enabled = false;
+            txtTongTien.Text = "";
         }
 
         private void loadDanhMuc()
@@ -155,12 +159,13 @@ namespace SaleManagement.Froms
                 }
             }
 
-            txtTongTien.Text = total.ToString("N2");
         }
 
         private void btnTaoHD_Click(object sender, EventArgs e)
         {
+
             bool selectSP = false;
+            btnInHD.Enabled = true;
 
             if (cbxDanhMuc.SelectedIndex == -1 || cbxDanhMuc.SelectedValue == null)
             {
@@ -191,7 +196,7 @@ namespace SaleManagement.Froms
             }
             else
             {
-                string maHoaDon = generateMaHD();
+                 maHoaDon = generateMaHD();
                 HOADON hd = new HOADON()
                 {
                     MAHD = maHoaDon,
@@ -238,9 +243,19 @@ namespace SaleManagement.Froms
                     row.Cells["soluongmua"].Value = 0; // Đặt lại số lượng về 0 hoặc giá trị mặc định
                 }
 
-                // Cập nhật lại tổng tiền về 0
-                txtTongTien.Text = "0.00";
+               
             }
+        }
+
+        private void btnInHD_Click(object sender, EventArgs e)
+        {
+            frmCTHD cthd = new frmCTHD(maHoaDon);
+            cthd.Show();
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            frmTaoHD_Load(sender,e);
         }
     }
 }

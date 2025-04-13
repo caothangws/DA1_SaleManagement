@@ -89,7 +89,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>="Người lập:"+First(Fields!TENNV.Value, "DataSet1")</Value>
+                <Value>="Người lập: "+First(Fields!TENNV.Value, "DataSet1")</Value>
                 <Style>
                   <FontStyle>Italic</FontStyle>
                   <FontSize>11pt</FontSize>
@@ -100,9 +100,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TENNV</rd:DefaultName>
-        <Left>8.12016cm</Left>
+        <Left>7.90849cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.3398cm</Width>
+        <Width>4.55147cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -152,7 +152,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>="Ngày tạo HĐ: "+First(Fields!NGAYTAO.Value, "DataSet1")</Value>
+                <Value>="Ngày tạo HĐ: " + Format(First(Fields!NGAYTAO.Value, "DataSet1"), "dd/MM/yyyy")</Value>
                 <Style>
                   <FontStyle>Italic</FontStyle>
                   <FontSize>11pt</FontSize>
